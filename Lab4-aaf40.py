@@ -12,7 +12,6 @@ def cipher_encryption(plain, key):
     if len(key) != 4:
         raise ValueError("Key must consist of exactly 4 characters.")
     key_matrix = np.array([ord(char) - ord('A') for char in key.upper()]).reshape(2, 2)
-    #print("Key matrix:\n", key_matrix)
 
     det = int(np.round(np.linalg.det(key_matrix)))
     if np.gcd(det, 26) != 1:
