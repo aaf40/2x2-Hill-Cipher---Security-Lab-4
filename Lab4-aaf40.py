@@ -33,7 +33,7 @@ def main():
     plain_text = sys.argv[1]
     encryption_key = sys.argv[2]
 
-    encrypted_message = cipher_encryption(plain_text, encryption_key)
+    cipher_encryption(plain_text, encryption_key)
 
 if __name__ == "__main__":
     main()
