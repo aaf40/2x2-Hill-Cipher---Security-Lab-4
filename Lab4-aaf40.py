@@ -1,3 +1,4 @@
+# To run the code use command: python Lab4-aaf40.py <'plaintext'> <key>
 import sys
 import numpy as np
 
