@@ -4,7 +4,7 @@ import numpy as np
 def cipher_encryption(plain, key):
     plain = plain.upper().replace(" ", "")
     if len(plain) % 2 != 0:
-        plain += 'X'  # Append 'X' to make the length even
+        plain += 'Z'  # Append 'Z' to make the length even
 
     num_representation = [ord(char) - ord('A') for char in plain]
     message_matrices = np.array(num_representation).reshape(-1, 2).T
