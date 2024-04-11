@@ -34,7 +34,6 @@ def main():
     encryption_key = sys.argv[2]
 
     encrypted_message = cipher_encryption(plain_text, encryption_key)
-    print("Encrypted Message:", encrypted_message)
 
 if __name__ == "__main__":
     main()
