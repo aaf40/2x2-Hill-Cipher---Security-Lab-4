@@ -12,7 +12,7 @@ def cipher_encryption(plain, key):
     if len(key) != 4:
         raise ValueError("Key must consist of exactly 4 characters.")
     key_matrix = np.array([ord(char) - ord('A') for char in key.upper()]).reshape(2, 2)
-    print("Key matrix:\n", key_matrix)
+    #print("Key matrix:\n", key_matrix)
 
     det = int(np.round(np.linalg.det(key_matrix)))
     if np.gcd(det, 26) != 1:
@@ -22,7 +22,7 @@ def cipher_encryption(plain, key):
     encrypted_numbers = encrypted_matrices.T.flatten()  
     encrypted_text = ''.join(chr(num + ord('A')) for num in encrypted_numbers)
 
-    print("Encrypted text:", encrypted_text)
+    print("encrypted_text text: {}".format(encrypted_text))
     return encrypted_text
 
 def cipher_decryption(cipher, key):
@@ -54,21 +54,19 @@ def cipher_decryption(cipher, key):
     decrypted_numeric = (inverse_key_matrix @ cipher_matrix.T) % 26
     decrypted_text = ''.join(chr(num + ord('A')) for num in decrypted_numeric.T.flatten())
 
-    print("Decrypted text:", decrypted_text)
-    return decrypted_text
+    print("Decrypted text: {}".format(decrypted_text))
 
 def main():
     if len(sys.argv) != 3:
-        print("Usage: python <script.py> <'plaintext'> <key>")
+        print("Usage: python Lab4-aaf40.py <'plaintext'> <key>")
         sys.exit(1)
 
-    # plain_text = sys.argv[1]
-    # key = sys.argv[2]
-    # cipher_encryption(plain_text, key)
-
-    cipher_text = sys.argv[1]
+    plain_text = sys.argv[1]
     key = sys.argv[2]
-    cipher_decryption(cipher_text, key)
+    
+    encrypted_text = cipher_encryption(plain_text, key)
+
+    cipher_decryption(encrypted_text, key)
 
 if __name__ == "__main__":
     main()
